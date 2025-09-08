@@ -121,39 +121,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (skillsSection) {
     resetObserver.observe(skillsSection);
   }
-  const form = document.getElementById("contactForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const popup = document.getElementById("successPopup");
-
-  form.addEventListener("submit", function() {
-    // Show loading
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-    submitBtn.classList.add("loading");
-
-    // Show popup after 0.5s (without preventing Netlify submission)
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
-      submitBtn.classList.remove("loading");
-
-      popup.classList.add("show");
-      form.reset();
-    }, 500);
-  });
-
-  // Make closePopup globally accessible
-  window.closePopup = function() {
-    popup.classList.remove("show");
-  }
-
-  // Close popup when clicking outside
-  popup.addEventListener("click", function(e) {
-    if (e.target === popup) closePopup();
-  });
-
-  // Close popup with Escape key
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") closePopup();
-  });
+  
 });
+const handleSubmit = event => {
+  event.preventDefault();
+
+  const myForm = event.target;
+  const formData = new FormData(myForm);
+
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+    .then(() => navigate("/thank-you/"))
+    .catch(error => alert(error));
+};
