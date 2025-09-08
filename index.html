@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Samaha</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="#" class="logo">Portfolio</a>
+      <ul>
+        <li class="active"><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="bars-animation">
+      <div class="bar" style="--i: 6"></div>
+      <div class="bar" style="--i: 5"></div>
+      <div class="bar" style="--i: 4"></div>
+      <div class="bar" style="--i: 3"></div>
+      <div class="bar" style="--i: 2"></div>
+      <div class="bar" style="--i: 1"></div>
+    </div>
+    <section class="home">
+      <div class="home-info">
+        <h1>Welcome to My Portfolio</h1>
+        <h2>
+          I'm a
+          <span style="--i: 4" data-text="Back-end Developer"
+            >Back-end Developer</span
+          >
+          <span style="--i: 3" data-text="Front-end Developer"
+            >Front-end Developer</span
+          >
+          <span style="--i: 2" data-text="Digital marketing Executive"
+            >Digital marketing Executive</span
+          >
+          <span style="--i: 1" data-text="Seo Analyst">Seo Analyst</span>
+        </h2>
+        <p>
+          Hi, I'm Samaha, a passionate web developer with expertise in creating
+          dynamic and responsive websites. Let's work together to bring your
+          ideas to life!
+        </p>
+        <div class="btn-sci">
+         <a href="files/Samaha-CV.pdf" class="btn" download="Samaha-CV.pdf">Download CV</a>
+          <div class="sci">
+            <a href="#"><i class="bx bxl-linkedin"></i></a>
+            <a href="#"><i class="bx bxl-github"></i></a>
+            <!-- <a href="#"><i class="bx bxl-dribbble"></i></a> -->
+          </div>
+        </div>
+      </div>
+      <div class="home-img">
+        <div class="img-box">
+          <div class="img-item">
+            <img src="images/home.png" alt="home image" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="about-img">
+        <div class="about-box">
+          <div class="about-item">
+            <img src="images/home.png" alt="home image" />
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h2>About <span>Me</span></h2>
+        <h4>Web Developer & Digital Marketing Specialist</h4>
+        <p>
+          I'm Samaha, a dedicated web developer and digital marketing specialist
+          with a passion for creating engaging online experiences. With a strong
+          foundation in both front-end and back-end development, I bring a
+          unique blend of technical skills and marketing expertise to every
+          project I undertake. Hard-working web developer with a flair for
+          creating elegant solutions in the least amount of time. Developed many
+          ecommerce website and user interfaces, testing, debugging, and
+          training staff within eCommerce technologies. Proven ability in
+          optimizing web functionalities that improve data retrieval and
+          workflow efficiencies.
+        </p>
+        <a href="#about" class="btn">More about me</a>
+      </div>
+    </section>
+    <section class="skills-section" id="skills">
+      <h2>Skills</h2>
+      <p>Here are some of my key skills in web development and design.</p>
+
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="progress-circle">
+            <svg>
+              <circle class="bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <span class="percentage" data-percent="90">0%</span>
+          </div>
+          <p class="skill-name">Digital marketing Executive</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="progress-circle">
+            <svg>
+              <circle class="bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <span class="percentage" data-percent="95">0%</span>
+          </div>
+          <p class="skill-name">Back-end Development</p>
+        </div>
+
+        <div class="skill-item">
+          <div class="progress-circle">
+            <svg>
+              <circle class="bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <span class="percentage" data-percent="85">0%</span>
+          </div>
+          <p class="skill-name">Front-end Development</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2 class="section-title">My Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/akarat.png" alt="Akarat.com" />
+          </div>
+          <div class="project-info">
+            <h3>Akarat.com – Real Estate Portal</h3>
+            <p>
+              Akarat.com is a comprehensive real estate platform that connects
+              buyers, sellers, and agents. The portal enables users to browse,
+              list, and manage properties with advanced search and filtering
+              options including property listings, agent dashboards, and user
+              authentication.
+            </p>
+            <div class="project-links">
+              <a href="https://akarat.com">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/swa.png" alt="SWA Diamonds" />
+          </div>
+          <div class="project-info">
+            <h3>SWA Diamonds – E Commerce Platform</h3>
+            <p>
+              SWA Diamonds is a luxury e-commerce platform specializing in
+              diamond and jewelry sales, designed to provide customers with a
+              seamless online shopping experience.Integrated secure payment
+              gateway with support for split-payment.
+            </p>
+            <div class="project-links">
+              <a href="https://www.swadiamonds.com/">Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/hokybo.png" alt="Hokybo.com" />
+          </div>
+          <div class="project-info">
+            <h3>Hokybo.com – Furniture E-Commerce Platform</h3>
+            <p>
+              Hokybo.com is an online furniture and home decor destination
+              offering a wide range of products, including sofas, chairs, beds,
+              and more. The platform aims to provide users with a seamless
+              shopping experience, combining extensive product catalogs with
+              user-friendly features.
+            </p>
+            <div class="project-links">
+              <a href="https://hokybo.com/">Live Demo</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/eminence.png" alt="Eminence Private School" />
+          </div>
+          <div class="project-info">
+            <h3>Eminence Private School – Educational Web Platform</h3>
+            <p>
+              Eminence Private School, located in Fujairah is the flagship
+              institution of the Sadhbhavana Group in the Middle East. The
+              school emphasizes progressive, experiential education tailored to
+              21st-century learners, offering an environment that nurtures
+              global citizenship and holistic development.
+            </p>
+            <div class="project-links">
+              <a href="https://eminenceschool.org/">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/shopkees.png" alt="Shopkees.com" />
+          </div>
+          <div class="project-info">
+            <h3>Shopkees.com – Electronics & IT E-Commerce Platform</h3>
+            <p>
+              Shopkees.com is a leading online electronics and IT product
+              retailer in the Middle East (particularly the UAE), offering
+              everything from mobile phones and laptops to office hardware,
+              software, and networking solutions. It combines both B2C online
+              storefronts and B2B managed services for businesses in the region.
+            </p>
+            <div class="project-links">
+              <a href="https://shopkees.com/">Live Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img">
+            <img src="images/dayim.png" alt="Dayim Rentals" />
+          </div>
+          <div class="project-info">
+            <h3>Dayim Rentals – Vehicle & Equipment Rental Platform</h3>
+            <p>
+              Dayim Rentals is a rental services platform offering cars, heavy
+              equipment, and machinery for both individuals and businesses. The
+              website provides an easy booking experience, service details, and
+              company information to enhance customer reach and convenience.
+            </p>
+            <div class="project-links">
+              <a href="https://dayimrentals.com/">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Let's Work Together</h3>
+          <p>
+            I'm always excited to take on new challenges and collaborate on
+            innovative projects. Whether you need a website, digital marketing
+            strategy, or SEO optimization, I'm here to help bring your vision to
+            life.
+          </p>
+          <br />
+
+          <div class="contact-item">
+            <i class="bx bx-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>samaha.nabeel@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="bx bx-phone"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+971 567152030</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="bx bx-map"></i>
+            <div>
+              <h4>Location</h4>
+              <p>Dubai, UAE</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2024 Samaha Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+      
+    </script>
+  </body>
+  <script src="scripts.js"></script>
+</html>
