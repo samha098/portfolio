@@ -137,3 +137,10 @@ const handleSubmit = event => {
     .then(() => navigate("/thank-you/"))
     .catch(error => alert(error));
 };
+const menuToggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
