@@ -52,7 +52,9 @@
           ideas to life!
         </p>
         <div class="btn-sci">
-         <a href="files/Samaha-CV.pdf" class="btn" download="Samaha-CV.pdf">Download CV</a>
+          <a href="files/Samaha-CV.pdf" class="btn" download="Samaha-CV.pdf"
+            >Download CV</a
+          >
           <div class="sci">
             <a href="#"><i class="bx bxl-linkedin"></i></a>
             <a href="#"><i class="bx bxl-github"></i></a>
@@ -287,31 +289,63 @@
           </div>
         </div>
 
-        <form class="contact-form">
+        <form
+          class="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          id="contactForm"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+
           <div class="form-group">
-            <input type="text" placeholder="Your Name" required />
+            <input type="text" name="name" placeholder="Your Name" required />
           </div>
+
           <div class="form-group">
-            <input type="email" placeholder="Your Email" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
           </div>
+
           <div class="form-group">
-            <input type="text" placeholder="Subject" required />
+            <input type="text" name="subject" placeholder="Subject" required />
           </div>
+
           <div class="form-group">
-            <textarea placeholder="Your Message" required></textarea>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              required
+            ></textarea>
           </div>
-          <button type="submit" class="submit-btn">Send Message</button>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            Send Message
+          </button>
         </form>
+
+        <!-- Success Popup -->
+        <div class="popup-overlay" id="successPopup">
+          <div class="popup">
+            <div class="popup-icon">✓</div>
+            <h2>Message Sent!</h2>
+            <p>
+              Thank you for reaching out! Your message has been sent
+              successfully. I'll get back to you as soon as possible.
+            </p>
+            <button class="popup-btn" onclick="closePopup()">Awesome!</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <footer class="footer">
       <p>&copy; 2024 Samaha Portfolio. All rights reserved.</p>
     </footer>
-
-    <script>
-      
-    </script>
+    <script src="scripts.js"></script>
   </body>
-  <script src="scripts.js"></script>
 </html>

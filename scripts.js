@@ -1,118 +1,159 @@
 // Progress Circle Animation on Scroll
-document.addEventListener('DOMContentLoaded', function() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    let animated = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const skillItems = document.querySelectorAll(".skill-item");
+  let animated = false;
 
-    // Function to animate progress circles
-    function animateProgressCircles() {
-        skillItems.forEach((item, index) => {
-            const progressCircle = item.querySelector('.progress');
-            const percentageSpan = item.querySelector('.percentage');
-            const targetPercent = parseInt(percentageSpan.getAttribute('data-percent'));
-            
-            // Calculate circle circumference
-            const radius = 45;
-            const circumference = 2 * Math.PI * radius;
-            
-            // Set initial stroke-dasharray and stroke-dashoffset
-            progressCircle.style.strokeDasharray = circumference;
-            progressCircle.style.strokeDashoffset = circumference;
-            
-            // Animate with delay for staggered effect
-            setTimeout(() => {
-                // Calculate offset based on percentage
-                const offset = circumference - (targetPercent / 100) * circumference;
-                
-                // Animate the circle
-                progressCircle.style.transition = 'stroke-dashoffset 1.5s ease-in-out';
-                progressCircle.style.strokeDashoffset = offset;
-                
-                // Animate the percentage text
-                animatePercentage(percentageSpan, targetPercent);
-            }, index * 200); // 200ms delay between each circle
-        });
-    }
+  // Function to animate progress circles
+  function animateProgressCircles() {
+    skillItems.forEach((item, index) => {
+      const progressCircle = item.querySelector(".progress");
+      const percentageSpan = item.querySelector(".percentage");
+      const targetPercent = parseInt(
+        percentageSpan.getAttribute("data-percent")
+      );
 
-    // Function to animate percentage counter
-    function animatePercentage(element, target) {
-        let current = 0;
-        const increment = target / 60; // 60 frames for smooth animation
-        const duration = 1500; // 1.5 seconds
-        const stepTime = duration / 60;
+      // Calculate circle circumference
+      const radius = 45;
+      const circumference = 2 * Math.PI * radius;
 
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = Math.round(current) + '%';
-        }, stepTime);
-    }
+      // Set initial stroke-dasharray and stroke-dashoffset
+      progressCircle.style.strokeDasharray = circumference;
+      progressCircle.style.strokeDashoffset = circumference;
 
-    // Intersection Observer for scroll detection
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animated) {
-                animateProgressCircles();
-                animated = true; // Prevent re-animation
-            }
-        });
-    }, {
-        threshold: 0.5, // Trigger when 50% of the skills section is visible
-        rootMargin: '0px 0px -50px 0px' // Add some margin for better UX
+      // Animate with delay for staggered effect
+      setTimeout(() => {
+        // Calculate offset based on percentage
+        const offset = circumference - (targetPercent / 100) * circumference;
+
+        // Animate the circle
+        progressCircle.style.transition = "stroke-dashoffset 1.5s ease-in-out";
+        progressCircle.style.strokeDashoffset = offset;
+
+        // Animate the percentage text
+        animatePercentage(percentageSpan, targetPercent);
+      }, index * 200); // 200ms delay between each circle
     });
+  }
 
-    // Observe the skills section
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-        observer.observe(skillsSection);
+  // Function to animate percentage counter
+  function animatePercentage(element, target) {
+    let current = 0;
+    const increment = target / 60; // 60 frames for smooth animation
+    const duration = 1500; // 1.5 seconds
+    const stepTime = duration / 60;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = Math.round(current) + "%";
+    }, stepTime);
+  }
+
+  // Intersection Observer for scroll detection
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          animateProgressCircles();
+          animated = true; // Prevent re-animation
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Trigger when 50% of the skills section is visible
+      rootMargin: "0px 0px -50px 0px", // Add some margin for better UX
     }
+  );
 
-    // Fallback: If Intersection Observer is not supported
-    if (!('IntersectionObserver' in window)) {
-        window.addEventListener('scroll', function() {
-            if (!animated) {
-                const skillsSection = document.getElementById('skills');
-                const rect = skillsSection.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                
-                // Check if skills section is in viewport
-                if (rect.top < windowHeight && rect.bottom > 0) {
-                    animateProgressCircles();
-                    animated = true;
-                }
-            }
-        });
-    }
+  // Observe the skills section
+  const skillsSection = document.getElementById("skills");
+  if (skillsSection) {
+    observer.observe(skillsSection);
+  }
 
-    // Optional: Reset animation function (if you want to re-trigger on scroll up)
-    function resetAnimation() {
-        animated = false;
-        skillItems.forEach(item => {
-            const progressCircle = item.querySelector('.progress');
-            const percentageSpan = item.querySelector('.percentage');
-            
-            progressCircle.style.transition = 'none';
-            progressCircle.style.strokeDashoffset = 2 * Math.PI * 45;
-            percentageSpan.textContent = '0%';
-        });
-    }
+  // Fallback: If Intersection Observer is not supported
+  if (!("IntersectionObserver" in window)) {
+    window.addEventListener("scroll", function () {
+      if (!animated) {
+        const skillsSection = document.getElementById("skills");
+        const rect = skillsSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-    
-    const resetObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting && animated) {
-                resetAnimation();
-            }
-        });
-    }, {
-        threshold: 0,
-        rootMargin: '100px 0px 100px 0px'
+        // Check if skills section is in viewport
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          animateProgressCircles();
+          animated = true;
+        }
+      }
     });
-    
-    if (skillsSection) {
-        resetObserver.observe(skillsSection);
+  }
+
+  // Optional: Reset animation function (if you want to re-trigger on scroll up)
+  function resetAnimation() {
+    animated = false;
+    skillItems.forEach((item) => {
+      const progressCircle = item.querySelector(".progress");
+      const percentageSpan = item.querySelector(".percentage");
+
+      progressCircle.style.transition = "none";
+      progressCircle.style.strokeDashoffset = 2 * Math.PI * 45;
+      percentageSpan.textContent = "0%";
+    });
+  }
+
+  const resetObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && animated) {
+          resetAnimation();
+        }
+      });
+    },
+    {
+      threshold: 0,
+      rootMargin: "100px 0px 100px 0px",
     }
-    
+  );
+
+  if (skillsSection) {
+    resetObserver.observe(skillsSection);
+  }
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const popup = document.getElementById("successPopup");
+
+  form.addEventListener("submit", function() {
+    // Show loading
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    submitBtn.classList.add("loading");
+
+    // Show popup after 0.5s (without preventing Netlify submission)
+    setTimeout(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+      submitBtn.classList.remove("loading");
+
+      popup.classList.add("show");
+      form.reset();
+    }, 500);
+  });
+
+  // Make closePopup globally accessible
+  window.closePopup = function() {
+    popup.classList.remove("show");
+  }
+
+  // Close popup when clicking outside
+  popup.addEventListener("click", function(e) {
+    if (e.target === popup) closePopup();
+  });
+
+  // Close popup with Escape key
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closePopup();
+  });
 });

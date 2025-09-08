@@ -30,7 +30,7 @@ a {
   opacity: 0;
   animation: show-navbar 0.5s linear forwards;
   animation-delay: 1.2s;
-  background: rgba(0, 0, 0, 0.8); 
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -235,7 +235,6 @@ a {
   align-items: center;
   gap: 2rem;
   position: relative;
-  
 }
 
 .about-img {
@@ -322,39 +321,38 @@ a {
 /* skills section */
 
 .skills-section {
-    padding: 100px 9% 50px;
-    background: rgba(138, 43, 226, 0.05); 
-    border-radius: 150px;
-    text-align: center;
-    margin: 20px;
-  
+  padding: 100px 9% 50px;
+  background: rgba(138, 43, 226, 0.05);
+  border-radius: 150px;
+  text-align: center;
+  margin: 20px;
 }
 
 .skills-section h2 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #a0a0ff; /* A lighter purple for the heading */
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #a0a0ff; /* A lighter purple for the heading */
 }
 
 .skills-section p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 40px;
-    color: #b0b0d0; /* Slightly muted text */
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #b0b0d0; /* Slightly muted text */
 }
 
 .skills-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 30px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .skill-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 180px; /* Adjust size as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 180px; /* Adjust size as needed */
 }
 
 .progress-circle {
@@ -398,13 +396,13 @@ a {
   font-weight: 500;
 }
 .skill-name {
-    font-size: 1.2em;
-    color: #e0e0e0;
+  font-size: 1.2em;
+  color: #e0e0e0;
 }
 .skill-icon {
-    width: 36px;
-    height: 36px;
-    margin-bottom: 10px;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
 }
 
 /* Project section */
@@ -479,7 +477,7 @@ a {
 }
 
 .project-links {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 .project-links a {
@@ -715,5 +713,114 @@ a {
   .projects,
   .contact {
     padding: 80px 5% 40px;
+  }
+}
+/* Popup Styles */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.popup-overlay.show {
+  display: flex;
+}
+.popup {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  border: 2px solid #8a2be2;
+  transform: scale(0.7);
+  transition: all 0.3s ease;
+}
+
+.popup-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #8a2be2, #0099cc);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.popup h2 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 28px;
+}
+
+.popup p {
+  color: #ccc;
+  margin-bottom: 25px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.popup-btn {
+  background: linear-gradient(45deg, #8a2be2, #0099cc);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.popup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(138, 43, 226, 0.4);
+}
+
+/* Loading state */
+.loading {
+  position: relative;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin: auto;
+  border: 2px solid transparent;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
