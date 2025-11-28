@@ -974,3 +974,11 @@ a {
     transform: rotate(360deg);
   }
 }
+@media (max-width: 768px) {
+  .about-img {
+    display: none;
+  }
+  .home {     
+  gap: 7rem;
+}
+}
