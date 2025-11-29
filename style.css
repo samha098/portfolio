@@ -982,3 +982,8 @@ a {
   gap: 7rem;
 }
 }
+@media (max-width: 480px) {
+    .about, .skills-container, .projects, .contact {
+        padding: 0px;
+    }
+}
